@@ -7,7 +7,6 @@ import { ROW_STYLE } from "./row.style";
 
 
 @Component({
-    moduleId: module.id,
     selector: '[dataTableRow]',
     template: ROW_TEMPLATE,
     styles: [ROW_STYLE]
@@ -24,6 +23,8 @@ export class DataTableRow implements OnDestroy {
     private _selected: boolean;
 
     @Output() selectedChange = new EventEmitter();
+    @Output() rowClicked: EventEmitter<any> = new EventEmitter();
+    @Output() rowDoubleClicked: EventEmitter<any> = new EventEmitter();
 
     get selected() {
         return this._selected;
@@ -33,6 +34,16 @@ export class DataTableRow implements OnDestroy {
         this._selected = selected;
         this.selectedChange.emit(selected);
     }
+
+    // Handlers
+ 
+   onRowClicked(row: DataTableRow, event) {
+       this.rowClicked.emit({row, event});
+   }
+
+   onRowDoubleClicked(row: DataTableRow, event) {
+        this.rowDoubleClicked.emit({row, event});   
+   }
 
     // other:
 
@@ -57,5 +68,7 @@ export class DataTableRow implements OnDestroy {
         this.selected = false;
     }
 
-    private _this = this; // FIXME is there no template keyword for this in angular 2?
+    get _this() {
+        return this;
+    }
 }

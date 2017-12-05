@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var column_component_1 = require("./column.component");
 var row_component_1 = require("./row.component");
@@ -468,7 +467,6 @@ __decorate([
 ], DataTable.prototype, "cellClick", void 0);
 DataTable = __decorate([
     core_1.Component({
-        moduleId: module.id,
         selector: 'data-table',
         template: table_template_1.TABLE_TEMPLATE,
         styles: [table_style_1.TABLE_STYLE]

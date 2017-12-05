@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var table_component_1 = require("./table.component");
 var row_template_1 = require("./row.template");
@@ -20,7 +19,8 @@ var DataTableRow = (function () {
     function DataTableRow(dataTable) {
         this.dataTable = dataTable;
         this.selectedChange = new core_1.EventEmitter();
-        this._this = this; // FIXME is there no template keyword for this in angular 2?
+        this.rowClicked = new core_1.EventEmitter();
+        this.rowDoubleClicked = new core_1.EventEmitter();
     }
     Object.defineProperty(DataTableRow.prototype, "selected", {
         get: function () {
@@ -33,6 +33,13 @@ var DataTableRow = (function () {
         enumerable: true,
         configurable: true
     });
+    // Handlers
+    DataTableRow.prototype.onRowClicked = function (row, event) {
+        this.rowClicked.emit({ row: row, event: event });
+    };
+    DataTableRow.prototype.onRowDoubleClicked = function (row, event) {
+        this.rowDoubleClicked.emit({ row: row, event: event });
+    };
     Object.defineProperty(DataTableRow.prototype, "displayIndex", {
         // other:
         get: function () {
@@ -55,6 +62,13 @@ var DataTableRow = (function () {
     DataTableRow.prototype.ngOnDestroy = function () {
         this.selected = false;
     };
+    Object.defineProperty(DataTableRow.prototype, "_this", {
+        get: function () {
+            return this;
+        },
+        enumerable: true,
+        configurable: true
+    });
     return DataTableRow;
 }());
 __decorate([
@@ -69,9 +83,16 @@ __decorate([
     core_1.Output(),
     __metadata("design:type", Object)
 ], DataTableRow.prototype, "selectedChange", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], DataTableRow.prototype, "rowClicked", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], DataTableRow.prototype, "rowDoubleClicked", void 0);
 DataTableRow = __decorate([
     core_1.Component({
-        moduleId: module.id,
         selector: '[dataTableRow]',
         template: row_template_1.ROW_TEMPLATE,
         styles: [row_style_1.ROW_STYLE]
