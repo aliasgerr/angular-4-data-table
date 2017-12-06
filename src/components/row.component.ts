@@ -16,6 +16,9 @@ export class DataTableRow implements OnDestroy {
     @Input() item: any;
     @Input() index: number;
 
+    @Output() rowClicked: EventEmitter<any> = new EventEmitter();
+   @Output() rowDoubleClicked: EventEmitter<any> = new EventEmitter();
+
     expanded: boolean;
 
     // row selection:
@@ -23,8 +26,6 @@ export class DataTableRow implements OnDestroy {
     private _selected: boolean;
 
     @Output() selectedChange = new EventEmitter();
-    @Output() rowClicked: EventEmitter<any> = new EventEmitter();
-    @Output() rowDoubleClicked: EventEmitter<any> = new EventEmitter();
 
     get selected() {
         return this._selected;
@@ -35,8 +36,7 @@ export class DataTableRow implements OnDestroy {
         this.selectedChange.emit(selected);
     }
 
-    // Handlers
- 
+    // Emiiters
    onRowClicked(row: DataTableRow, event) {
        this.rowClicked.emit({row, event});
    }
@@ -68,7 +68,7 @@ export class DataTableRow implements OnDestroy {
         this.selected = false;
     }
 
-    get _this() {
-        return this;
+    get _this()  {
+        return this; // FIXME is there no template keyword for this in angular 2?
     }
 }

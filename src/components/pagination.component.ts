@@ -11,10 +11,10 @@ import {PAGINATION_STYLE} from "./pagination.style";
 })
 export class DataTablePagination {
 
-    @Input() show_range = false;
-    @Input() show_limit = false;
-    @Input() show_input = false;
-    @Input() show_numbers = true;
+    @Input() show_range = true;
+    @Input() show_limit = true;
+    @Input() show_input = true;
+    @Input() show_numbers = false;
 
     constructor(@Inject(forwardRef(() => DataTable)) public dataTable: DataTable) {
     }
