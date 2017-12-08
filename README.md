@@ -22,11 +22,7 @@ Demo for pagination with seperate page numbers will be added soon
 ## Installing:
 `npm install bk-angular-data-table --save`
 
-## Prodaction (Minification)
-Some times can be some problam with it. to fix it
-use import like this
-
-`import { DataTableModule } from 'angular-4-data-table/src/index';`
+`import { DataTableModule } from 'bk-angular-data-table';`
   
 #### Licensing
 MIT License
