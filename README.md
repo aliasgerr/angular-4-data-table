@@ -1,4 +1,4 @@
-## Angular 4 Data Table
+## Bitkraft Angular Data Table
 
 It is fork of this package [https://github.com/ggmod/angular-2-data-table] (https://github.com/ggmod/angular-2-data-table)
 
