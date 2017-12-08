@@ -20,25 +20,13 @@ Check out the [demo](https://ggmod.github.io/angular-2-data-table-demo) and its 
 Demo for pagination with seperate page numbers will be added soon
 
 ## Installing:
-`npm install angular-4-data-table --save`
+`npm install bk-angular-data-table --save`
 
 ## Prodaction (Minification)
 Some times can be some problam with it. to fix it
 use import like this
 
 `import { DataTableModule } from 'angular-4-data-table/src/index';`
-
-add in .angular-cli.json
-
-`"scripts": [
-        "../node_modules/angular-4-data-table/dist/index.js"
-],`
-
-and for prodaction build use
-
-`ng build --prod --aot=false`
-
- ### Added numerical pagination support with 2 next and previous links 
   
 #### Licensing
 MIT License
